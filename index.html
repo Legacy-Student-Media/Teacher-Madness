@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+
+<head>
+    <link rel="stylesheet" type="text/css" src="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="entry">
+            <form>
+                <input type="radio" name="teacher" value="john doe"> John Doe<br />
+                <input type="radio" name="teacher" value="jane doe"> Jane Doe<br />
+                <button type="button" onclick="vote()">Vote</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function vote() {
+            var radios = document.querySelectorAll('input[type="radio"]:checked');
+            if (radios.length > 0) {
+                alert("voted")
+            } else {
+                alert("please vote")
+            }
+        }
+
+    </script>
+</body>
