@@ -38,8 +38,10 @@
             }
 
             var json = JSON.stringify(post);
+            console.log(`req body: ${json}`);
             xhr.open("POST", "/vote/");
-            xhr.send(post);
+            xhr.setRequestHeader("content-type", "application/json");
+            xhr.send(json);
 
             var radios = document.querySelectorAll('input[type="radio"]:checked');
             if (radios.length > 0) {
