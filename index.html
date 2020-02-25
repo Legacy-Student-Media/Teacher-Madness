@@ -8,28 +8,36 @@
     <div class="wrapper">
         <div class="entry">
             <form>
-                <input type="radio" name="1" value="1"> John Doe<br />
-                <input type="radio" name="1" value="2"> Jane Doe<br />
+                <input type="radio" name="0" value="1"> John Doe<br />
+                <input type="radio" name="0" value="2"> Jane Doe<br />
                 <button type="button" onclick="vote(0)">Vote</button>
             </form>
         </div>
         <div class="entry">
             <form>
-                <input type="radio" name="teacher" value="john doe"> John Doe<br />
-                <input type="radio" name="teacher" value="jane doe"> Jane Doe<br />
+                <input type="radio" name="1" value="1"> John Doe<br />
+                <input type="radio" name="1" value="2"> Jane Doe<br />
                 <button type="button" onclick="vote(1)">Vote</button>
             </form>
         </div>
     </div>
     <script type="text/javascript">
         function vote(entry) {
+            var radios = document.querySelectorAll('input[type="radio"]:checked');
+            if (radios.length > 0) {
+                alert("voted");
+            } else {
+                return alert("please vote");
+            }
+
             var xhr = new XMLHttpRequest();
             var value;
             var choices = document.getElementsByName(entry);
+            console.log(choices);
             if (choices[0].checked) {
-                value = 1;
+                value = 0;
             } else {
-                value = 2;
+                value = 1;
             }
 
             var post = {
@@ -42,14 +50,14 @@
             xhr.open("POST", "/vote/");
             xhr.setRequestHeader("content-type", "application/json");
             xhr.send(json);
+        }
 
-            var radios = document.querySelectorAll('input[type="radio"]:checked');
-            if (radios.length > 0) {
-                alert("voted")
-            } else {
-                alert("please vote")
-            }
+        function getVotes(entry) {
+            var xhr = new XMLHttpRequest();
         }
 
     </script>
 </body>
+
+U=&m-G~[N9i5
+?-Y}C,acM:6
