@@ -4,6 +4,13 @@ let sql = new sqlite.Database('./votes.db', (err) => {
     console.log("Connected to the votes database");
 });
 
+sql.run(`UPDATE vote SET votes1 = 2 WHERE voteId = 1`, function (err) {
+    if (err) {
+        console.error(`myErr ${err} \n${err.stack}`);
+    }
+    console.log('updateDB ran');
+})
+
 sql.all('SELECT * FROM vote', [], (err, rows) => {
     if (err) {
         throw err;

@@ -33,49 +33,65 @@ app.put('/votes', (req, res) => {
     parseVotes(id, opt);
 });
 
-function vote(iD, opt) {
-    console.log(iD);
-    if (iD == null || opt == null) return;
-    let raw = fs.readFileSync('votes.json');
-    let data = JSON.parse(raw);
-    let id = parseInt(iD);
+function vote(id, opt) {
+    if (id == null || opt == null) return;
+    console.log(getRow);
 
-    console.log(data.votes[id]);
+    getRow(id).then(row => {
+        let newVotes;
 
-    sql.run(`SELECT * FROM vote WHERE voteId ="${id}"`, function (err, row) {
-        if (err) {
-            console.error(`myErr ${err} \n${err.stack}`);
-            sql.run('CREATE TABLE IF NOT EXISTS vote (voteId INTEGER, votes1 INTEGER, votes2 INTEGER', function () {
-                sql.run('INSERT INTO vote (voteId, votes1, votes2) VALUES (?, ?, ?)', [id, 0]);
-            });
-        }
-        if (row) {
-            let curVotes;
-            let newVotes;
-            if (opt == 0) {
-                curVotes = parseInt(row.votes1);
-                newVotes = curVotes++;
-                sql.run(`UPDATE vote SET votes1 = ${newVotes} WHERE voteId = ${id}`);
-            } else if (opt == 1) {
-                curVotes = parseInt(row.votes2);
-                newVotes = curVotes++;
-                sql.run(`UPDATE vote SET votes2 = ${newVotes} WHERE voteId = ${id}`);
-            }
-
-            console.log()
-        } else {
-            sql.run('INSERT INTO vote (voteId, votes1, votes2) VALUES (?, ?, ?)', [id, opt]);
+        if (opt == 0) {
+            newVotes = row.votes1++;
+            updateDB(id, "votes1", newVotes);
+        } else if (opt == 1) {
+            newVotes = row.votes2++;
+            updateDB(id, "votes2", newVotes);
         }
     });
+}
 
 
-    /*let nNum = `n${id}`;
-    let cNum = `c${opt}`;
+/*let nNum = `n${id}`;
+let cNum = `c${opt}`;
 
-    data.votes[id].choices[opt]++;
+data.votes[id].choices[opt]++;
 
-    let upData = JSON.stringify(data, null, 2);
-    fs.writeFileSync("./votes.json", upData);*/
+let upData = JSON.stringify(data, null, 2);
+fs.writeFileSync("./votes.json", upData);*/
+
+//Get row from sql 
+const getRow = (id) => {
+    return new Promise((resolve, reject) => {
+        let row;
+        sql.get(`SELECT * FROM vote WHERE voteId ="${id}"`, function (err, r) {
+            if (err) {
+                console.error(`myErr ${err} \n${err.stack}`);
+            }
+
+            if (!r) {
+                console.log("no row");
+                sql.run('INSERT INTO vote (voteId, votes1, votes2) VALUES (?, ?, ?)', [id, 0, 0]);
+            }
+            console.log(`r = ${r.votes2}`);
+            row = r
+        });
+        resolve(row);
+    });
+}
+
+//Update value in sql database
+function updateDB(id, field, val) {
+    sql.run(`UPDATE vote SET ${field} = ${val} WHERE voteId = ${id}`, function (err) {
+        if (err) {
+            console.error(`myErr ${err} \n${err.stack}`);
+        }
+        console.log('updateDB ran');
+    })
 }
 
 app.listen(8080, () => console.log('Listening'));
+
+//Standard exception handler
+process.on('unhandledRejection', err => {
+    console.error('Uncaught Promise Error: \n' + err.stack);
+});
