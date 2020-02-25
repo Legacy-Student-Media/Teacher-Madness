@@ -35,11 +35,10 @@ app.put('/votes', (req, res) => {
 
 function vote(id, opt) {
     if (id == null || opt == null) return;
-    console.log(getRow);
 
     getRow(id).then(row => {
         let newVotes;
-
+        console.log(row);
         if (opt == 0) {
             newVotes = row.votes1++;
             updateDB(id, "votes1", newVotes);
@@ -49,15 +48,6 @@ function vote(id, opt) {
         }
     });
 }
-
-
-/*let nNum = `n${id}`;
-let cNum = `c${opt}`;
-
-data.votes[id].choices[opt]++;
-
-let upData = JSON.stringify(data, null, 2);
-fs.writeFileSync("./votes.json", upData);*/
 
 //Get row from sql 
 const getRow = (id) => {
@@ -72,10 +62,12 @@ const getRow = (id) => {
                 console.log("no row");
                 sql.run('INSERT INTO vote (voteId, votes1, votes2) VALUES (?, ?, ?)', [id, 0, 0]);
             }
-            console.log(`r = ${r.votes2}`);
+            //console.log(`r = ${r.votes2}`);
             row = r
         });
-        resolve(row);
+        setTimeout(function () {
+            resolve(row);
+        }, 750);
     });
 }
 
