@@ -35,57 +35,28 @@ app.put('/votes', (req, res) => {
 
 function vote(id, opt) {
     if (id == null || opt == null) return;
-    console.log(getRow);
 
-    getRow(id).then(row => {
-        let newVotes;
+    sql.get(`SELECT * FROM vote WHERE voteId=${id}`, function (err, row) {
+        let curr, name;
 
         if (opt == 0) {
-            newVotes = row.votes1++;
-            updateDB(id, "votes1", newVotes);
-        } else if (opt == 1) {
-            newVotes = row.votes2++;
-            updateDB(id, "votes2", newVotes);
+            curr = row.votes1;
+            name = "votes1";
+        } else {
+            curr = row.votes2;
+            name = "votes2";
         }
-    });
-}
+        let up = parseInt(curr) + 1;
+        up = parseInt(up);
 
-
-/*let nNum = `n${id}`;
-let cNum = `c${opt}`;
-
-data.votes[id].choices[opt]++;
-
-let upData = JSON.stringify(data, null, 2);
-fs.writeFileSync("./votes.json", upData);*/
-
-//Get row from sql 
-const getRow = (id) => {
-    return new Promise((resolve, reject) => {
-        let row;
-        sql.get(`SELECT * FROM vote WHERE voteId ="${id}"`, function (err, r) {
+        console.log(`curr = ${curr}`)
+        console.log(`up = ${up}`)
+        sql.run(`UPDATE vote SET ${name} = "${up}" WHERE voteId = ${id}`, function (err) {
             if (err) {
                 console.error(`myErr ${err} \n${err.stack}`);
             }
-
-            if (!r) {
-                console.log("no row");
-                sql.run('INSERT INTO vote (voteId, votes1, votes2) VALUES (?, ?, ?)', [id, 0, 0]);
-            }
-            console.log(`r = ${r.votes2}`);
-            row = r
-        });
-        resolve(row);
-    });
-}
-
-//Update value in sql database
-function updateDB(id, field, val) {
-    sql.run(`UPDATE vote SET ${field} = ${val} WHERE voteId = ${id}`, function (err) {
-        if (err) {
-            console.error(`myErr ${err} \n${err.stack}`);
-        }
-        console.log('updateDB ran');
+            console.log('updateDB ran');
+        })
     })
 }
 
