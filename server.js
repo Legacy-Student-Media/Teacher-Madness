@@ -3,23 +3,11 @@ const app = express();
 const path = require("path");
 const bodyParser = require('body-parser');
 const fs = require("fs");
-const mysql = require("mysql");
+const sqlite = require("sqlite3").verbose();
 
-/*let sql = new sqlite.Database('./votes.db', (err) => {
+let sql = new sqlite.Database('./votes.db', (err) => {
     if (err) return console.error(`${err} \n${err.stack}`);
     console.log("Connected to the votes database");
-});*/
-
-let sql = new mysql.createConnection({
-    host: "localhost",
-    database: "vote",
-    user: "test",
-    password: "12345"
-});
-
-sql.connect(function (err) {
-    if (err) throw err;
-    console.log("Connected!");
 });
 
 app.use(express.static(__dirname));
