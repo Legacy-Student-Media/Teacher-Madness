@@ -1,3 +1,4 @@
+const port = 8080;
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -5,7 +6,7 @@ const bodyParser = require('body-parser');
 const fs = require("fs");
 const sqlite = require("sqlite3").verbose();
 
-let sql = new sqlite.Database('./votes.db', (err) => {
+let sql = new sqlite.Database('./vote.db', (err) => {
     if (err) return console.error(`${err} \n${err.stack}`);
     console.log("Connected to the votes database");
 });
@@ -30,7 +31,12 @@ app.post('/vote', (req, res) => {
 });
 
 app.put('/votes', (req, res) => {
-    parseVotes(id, opt);
+    let id = req.body.id;
+    sql.get(`SELECT * FROM vote WHERE voteId=${id}`, function (err, row) {
+        let opt1 = row.votes1;
+        let opt2 = row.votes2;
+        res.send(`{vote1: ${opt1}, vote2: ${opt2}}`);
+    });
 });
 
 function vote(id, opt) {
@@ -60,7 +66,7 @@ function vote(id, opt) {
     })
 }
 
-app.listen(8080, () => console.log('Listening'));
+app.listen(port, () => console.log(`Listening on port ${port}`));
 
 //Standard exception handler
 process.on('unhandledRejection', err => {

@@ -6,12 +6,18 @@
 
 <body>
     <div class="wrapper">
-        <div class="entry">
+        <div class="entry" id="v0">
             <form>
                 <input type="radio" name="0" value="1"> John Doe<br />
                 <input type="radio" name="0" value="2"> Jane Doe<br />
                 <button type="button" onclick="vote(0)">Vote</button>
             </form>
+        </div>
+        <div class="entry" id="n0" style="display: none;">
+            <p>John Doe</p>
+            <progress value="32" max="100">32%</progress>
+            <p>Jane Doe</p>
+            <progress value="68" max="100">68%</progress>
         </div>
         <div class="entry">
             <form>
@@ -24,11 +30,7 @@
     <script type="text/javascript">
         function vote(entry) {
             var radios = document.querySelectorAll('input[type="radio"]:checked');
-            if (radios.length > 0) {
-                alert("voted");
-            } else {
-                return alert("please vote");
-            }
+            if (!(radios.length > 0)) return alert("please vote");
 
             var xhr = new XMLHttpRequest();
             var value;
@@ -54,8 +56,28 @@
 
         function getVotes(entry) {
             var xhr = new XMLHttpRequest();
+
+            var body = {
+                id: entry
+            }
+
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log(xhr.responseText);
+                }
+            }
+
+            var json = JSON.stringify(body);
+            xhr.open("PUT", "/votes/");
+            xhr.setRequestHeader("content-type", "application/json");
+            xhr.send(json);
         }
 
+        function displayVotes (entry) {
+            document.getElementById("v0").style.display = "none";
+            document.getElementById("n0").style.display = "block";
+            getVotes(entry);
+        }
     </script>
 </body>
 

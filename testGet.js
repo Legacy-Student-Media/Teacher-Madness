@@ -1,5 +1,5 @@
 const sqlite = require('sqlite3').verbose();
-let sql = new sqlite.Database('./votes.db', (err) => {
+let sql = new sqlite.Database('./vote.db', (err) => {
     if (err) return console.error(`${err} \n${err.stack}`);
     console.log("Connected to the votes database");
 });

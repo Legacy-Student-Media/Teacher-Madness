@@ -5,9 +5,10 @@
 
 .entry {
     background-color: #e8e8e8;
+    height: 202px;
+    width: 202px;
     margin: 5px;
     padding: 20px;
-    max-width: 200px;
     line-height: 24px;
     border: 1px solid;
 }
