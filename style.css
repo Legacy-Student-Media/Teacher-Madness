@@ -5,10 +5,45 @@
 
 .entry {
     background-color: #e8e8e8;
-    height: 202px;
+    height: 150px;
     width: 202px;
     margin: 5px;
     padding: 20px;
-    line-height: 24px;
+    font-size: 20pt;
+    line-height: 50px;
     border: 1px solid;
+}
+
+.votes {
+    background-color: #e8e8e8;
+    height: 150px;
+    width: 202px;
+    margin: 5px;
+    padding: 0px 20px 40px;
+    font-size: 16pt;
+    line-height: 20px;
+    border: 1px solid;
+}
+
+button {
+    font-size: 16pt;
+}
+
+progress {
+    display: inline-block;
+	width: 190px;
+	height: 25px;
+	margin: 0;
+	background: none;
+	border: 0;
+	border-radius: 15px;
+	position: relative;
+}
+
+progress:after {
+	margin: -26px 0 0 -7px;
+	padding: 0;
+	display: inline-block;
+	float: left;
+	content: attr(value) '%';
 }
