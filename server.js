@@ -44,6 +44,11 @@ function vote(id, opt) {
     sql.get(`SELECT * FROM vote WHERE voteId=${id}`, function (err, row) {
         let curr, name;
 
+        if (!row) {
+            sql.run('INSERT INTO vote (voteId, votes1, votes2) VALUES (?, ?, ?)', [id, 0, 0]);
+            return vote(id, opt);
+        }
+
         if (opt == 0) {
             curr = row.votes1;
             name = "votes1";
@@ -51,6 +56,7 @@ function vote(id, opt) {
             curr = row.votes2;
             name = "votes2";
         }
+
         let up = parseInt(curr) + 1;
         up = parseInt(up);
 

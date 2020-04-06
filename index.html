@@ -2,46 +2,176 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Teacher Madness</title>
+
+    <!-- Grid-based auto-sizing system -->
+    <script type="text/javascript">
+        function resizeGridItem(item) {
+            var grid = document.getElementsByClassName("wrapper")[0];
+            var rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+            var rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+            var rowSpan = Math.ceil((item.querySelector('.entry').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+            item.style.gridRowEnd = "span " + rowSpan;
+        }
+
+        function resizeAllGridItems() {
+            var allItems = document.getElementsByClassName("entry");
+            for (var x = 0; x < allItems.length; x++) {
+                resizeGridItem(allItems[x]);
+            }
+        }
+
+        function resizeInstance(instance) {
+            var item = instance.elements[0];
+            resizeGridItem(item);
+        }
+
+        //Short delay before loading to make sure DOM loads all elements
+        window.onload = function() {
+            setTimeout(resizeAllGridItems, 150);
+        }
+
+        window.addEventListener("resize", resizeAllGridItems);
+    </script>
 </head>
+
+<!-- If no JavaScript (page needs JS to work) -->
+<noscript>
+    <style type="text/css">
+        .wrapper {
+            display: none;
+        }
+    </style>
+    <p>Your browser doesn't have JavaScript enabled. Please enable JavaScript to be able to use this site.</p>
+</noscript>
+
 
 <body>
     <div class="wrapper">
         <div class="entry" id="v0">
             <form>
-                <input type="radio" name="0" value="1"> John Doe<br />
-                <input type="radio" name="0" value="2"> Jane Doe<br />
+                <input type="radio" name="0" value="1"><label> John Doe</label><br />
+                <input type="radio" name="0" value="2"><label> Jane Doe</label><br />
                 <button type="button" onclick="vote(0)">Vote</button>
             </form>
         </div>
         <div class="votes" id="n0" style="display: none;">
-            <p>John Doe</p>
-            <progress id="0p0" value="32" max="100">32%</progress>
-            <p>Jane Doe</p>
-            <progress id="0p1" value="68" max="100">68%</progress>
+            <hr>
+            <p class="votes">John Doe<p class="votes" id="0t0"></p></p>
+            <progress id="0p0" value="32" max="100"></progress><hr>
+            <p class="votes">Jane Doe<p class="votes" id="0t1"></p></p>
+            <progress id="0p1" value="68" max="100"></progress>
         </div>
         <div class="entry" id="v1">
             <form>
-                <input type="radio" name="1" value="1"> John Doe<br />
-                <input type="radio" name="1" value="2"> Jane Doe<br />
+                <input type="radio" name="1" value="1"><label> John Doe</label><br />
+                <input type="radio" name="1" value="2"><label> Jane Doe</label><br />
                 <button type="button" onclick="vote(1)">Vote</button>
             </form>
         </div>
         <div class="votes" id="n1" style="display: none;">
-            <p>John Doe</p>
-            <progress id="1p0" value="32" max="100">32%</progress>
-            <p>Jane Doe</p>
-            <progress id="1p1" value="68" max="100">68%</progress>
+            <hr>
+            <p class="votes">John Doe<p class="votes" id="1t0"></p></p>
+            <progress id="1p0" value="32" max="100"></progress><hr>
+            <p class="votes">Jane Doe<p class="votes" id="1t1"></p></p>
+            <progress id="1p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v2">
+            <form>
+                <input type="radio" name="2" value="1"><label> Michelle Alamudun</label><br />
+                <input type="radio" name="2" value="2"><label> Alissa Alfaro</label><br />
+                <button type="button" onclick="vote(2)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n2" style="display: none;">
+            <hr>
+            <p class="votes">Michelle Alamudun<p class="votes" id="2t0"></p></p>
+            <progress id="2p0" value="32" max="100"></progress><hr>
+            <p class="votes">Alissa Alfaro<p class="votes" id="2t1"></p></p>
+            <progress id="2p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v3">
+            <form>
+                <input type="radio" name="3" value="1"><label> Julie Gross</label><br />
+                <input type="radio" name="3" value="2"><label> Sengmi Rema</label><br />
+                <button type="button" onclick="vote(3)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n3" style="display: none;">
+            <hr>
+            <p class="votes">Julie Gross<p class="votes" id="3t0"></p></p>
+            <progress id="3p0" value="32" max="100"></progress><hr>
+            <p class="votes">Sengmi Rema<p class="votes" id="3t1"></p></p>
+            <progress id="3p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v4">
+            <form>
+                <input type="radio" name="4" value="1"><label> Danielle Panzarella</label><br />
+                <input type="radio" name="4" value="2"><label> Eukra Purcell</label><br />
+                <button type="button" onclick="vote(4)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n4" style="display: none;">
+            <hr>
+            <p class="votes">Danielle Panzarella<p class="votes" id="4t0"></p></p>
+            <progress id="4p0" value="32" max="100"></progress><hr>
+            <p class="votes">Eukra Purcell<p class="votes" id="4t1"></p></p>
+            <progress id="4p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v5">
+            <form>
+                <input type="radio" name="5" value="1"><label> Cornelius Mitchell</label><br />
+                <input type="radio" name="5" value="2"><label> Brian Wilson</label><br />
+                <button type="button" onclick="vote(5)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n5" style="display: none;">
+            <hr>
+            <p class="votes">Cornelius Mitchell<p class="votes" id="5t0"></p></p>
+            <progress id="5p0" value="32" max="100"></progress><hr>
+            <p class="votes">Brian Wilson<p class="votes" id="5t1"></p></p>
+            <progress id="5p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v6">
+            <form>
+                <input type="radio" name="6" value="1"><label> Rachel Dearinger</label><br />
+                <input type="radio" name="6" value="2"><label> Helen Hulme</label><br />
+                <button type="button" onclick="vote(6)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n6" style="display: none;">
+            <hr>
+            <p class="votes">Rachel Dearinger<p class="votes" id="6t0"></p></p>
+            <progress id="6p0" value="32" max="100"></progress><hr>
+            <p class="votes">Helen Hulme<p class="votes" id="6t1"></p></p>
+            <progress id="6p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v7">
+            <form>
+                <input type="radio" name="7" value="1"><label> Lisa Osburn</label><br />
+                <input type="radio" name="7" value="2"><label> Lynda Williams</label><br />
+                <button type="button" onclick="vote(7)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n7" style="display: none;">
+            <hr>
+            <p class="votes">Lisa Osburn<p class="votes" id="7t0"></p></p>
+            <progress id="7p0" value="32" max="100"></progress><hr>
+            <p class="votes">Lynda Williams<p class="votes" id="7t1"></p></p>
+            <progress id="7p1" value="68" max="100"></progress>
         </div>
     </div>
+
     <script type="text/javascript">
-        function vote(entry) {
+        async function vote(entry) {
             var radios = document.querySelectorAll('input[type="radio"]:checked');
             if (!(radios.length > 0)) return alert("please vote");
 
-            var xhr = new XMLHttpRequest();
             var value;
             var choices = document.getElementsByName(entry);
-            console.log(choices);
+
             if (choices[0].checked) {
                 value = 0;
             } else {
@@ -53,20 +183,19 @@
                 value: value
             }
 
-            xhr.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    getVotes(entry);
-                }
-            }
-
-            var json = JSON.stringify(post);
-            xhr.open("POST", "http://teacher-madness.glitch.me/vote/");
-            xhr.setRequestHeader("content-type", "application/json");
-            xhr.send(json);
+            await fetch("http://teacher-madness.glitch.me/vote/", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(post)
+            })
+            .then(res => getVotes(entry))
+            .catch(err => console.error(err));
         }
 
         async function getVotes(entry) {
-            await fetch("http://teacher-madness.glitch.me/votes?id=1", {
+            await fetch(`http://teacher-madness.glitch.me/votes?id=${entry}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json'
@@ -83,6 +212,8 @@
 
             var b1 = document.getElementById(`${entry}p0`);
             var b2 = document.getElementById(`${entry}p1`);
+            var t1 = document.getElementById(`${entry}t0`);
+            var t2 = document.getElementById(`${entry}t1`);
 
             var tot = votes.vote1 + votes.vote2;
             var v1 = Math.round((votes.vote1 / tot) * 100);
@@ -90,6 +221,8 @@
 
             b1.setAttribute("value", v1);
             b2.setAttribute("value", v2);
+            t1.innerHTML = `: ${votes.vote1} votes (${v1}%)`;
+            t2.innerHTML = `: ${votes.vote2} votes (${v2}%)`;
 
             console.log(votes);
         }
