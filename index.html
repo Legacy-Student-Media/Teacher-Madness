@@ -5,36 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Teacher Madness</title>
-
-    <!-- Grid-based auto-sizing system -->
-    <script type="text/javascript">
-        function resizeGridItem(item) {
-            var grid = document.getElementsByClassName("wrapper")[0];
-            var rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-            var rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
-            var rowSpan = Math.ceil((item.querySelector('.entry').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
-            item.style.gridRowEnd = "span " + rowSpan;
-        }
-
-        function resizeAllGridItems() {
-            var allItems = document.getElementsByClassName("entry");
-            for (var x = 0; x < allItems.length; x++) {
-                resizeGridItem(allItems[x]);
-            }
-        }
-
-        function resizeInstance(instance) {
-            var item = instance.elements[0];
-            resizeGridItem(item);
-        }
-
-        //Short delay before loading to make sure DOM loads all elements
-        window.onload = function() {
-            setTimeout(resizeAllGridItems, 150);
-        }
-
-        window.addEventListener("resize", resizeAllGridItems);
-    </script>
 </head>
 
 <!-- If no JavaScript (page needs JS to work) -->
@@ -162,12 +132,656 @@
             <p class="votes">Lynda Williams<p class="votes" id="7t1"></p></p>
             <progress id="7p1" value="68" max="100"></progress>
         </div>
+        <div class="entry" id="v8">
+            <form>
+                <input type="radio" name="8" value="1"><label> Jeff Lindsey</label><br />
+                <input type="radio" name="8" value="2"><label> LaChelda Jacobs</label><br />
+                <button type="button" onclick="vote(8)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n8" style="display: none;">
+            <hr>
+            <p class="votes">Jeff Lindsey<p class="votes" id="8t0"></p></p>
+            <progress id="8p0" value="32" max="100"></progress><hr>
+            <p class="votes">LaChelda Jacobs<p class="votes" id="8t1"></p></p>
+            <progress id="8p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v9">
+            <form>
+                <input type="radio" name="9" value="1"><label> Jennifer Lowry</label><br />
+                <input type="radio" name="9" value="2"><label> Alan Cogdill</label><br />
+                <button type="button" onclick="vote(9)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n9" style="display: none;">
+            <hr>
+            <p class="votes">Jennifer Lowry<p class="votes" id="9t0"></p></p>
+            <progress id="9p0" value="32" max="100"></progress><hr>
+            <p class="votes">Alan Cogdill<p class="votes" id="9t1"></p></p>
+            <progress id="9p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v10">
+            <form>
+                <input type="radio" name="10" value="1"><label> Cuyler West</label><br />
+                <input type="radio" name="10" value="2"><label> Stephanie Tempel</label><br />
+                <button type="button" onclick="vote(10)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n10" style="display: none;">
+            <hr>
+            <p class="votes">Cuyler West</p><p class="votes" id="10t0"></p></p>
+            <progress id="10p0" value="32" max="100"></progress><hr>
+            <p class="votes">Stephanie Tempel<p class="votes" id="10t1"></p></p>
+            <progress id="10p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v11">
+            <form>
+                <input type="radio" name="11" value="1"><label> Rodney Nutley</label><br />
+                <input type="radio" name="11" value="2"><label> Tessa Mullins</label><br />
+                <button type="button" onclick="vote(11)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n11" style="display: none;">
+            <hr>
+            <p class="votes">Rodney Nutley<p class="votes" id="11t0"></p></p>
+            <progress id="11p0" value="32" max="100"></progress><hr>
+            <p class="votes">Tessa Mullins<p class="votes" id="11t1"></p></p>
+            <progress id="11p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v12">
+            <form>
+                <input type="radio" name="12" value="1"><label> Jinna Danser</label><br />
+                <input type="radio" name="12" value="2"><label> Meredith Conlin</label><br />
+                <button type="button" onclick="vote(12)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n12" style="display: none;">
+            <hr>
+            <p class="votes">Jinna Danser<p class="votes" id="12t0"></p></p>
+            <progress id="12p0" value="32" max="100"></progress><hr>
+            <p class="votes">Meredith Conlin<p class="votes" id="12t1"></p></p>
+            <progress id="12p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v13">
+            <form>
+                <input type="radio" name="13" value="1"><label> Jonathan Szostek</label><br />
+                <input type="radio" name="13" value="2"><label> Alexandria Thomas</label><br />
+                <button type="button" onclick="vote(13)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n13" style="display: none;">
+            <hr>
+            <p class="votes">Jonathan Szostek<p class="votes" id="13t0"></p></p>
+            <progress id="13p0" value="32" max="100"></progress><hr>
+            <p class="votes">Alexandria Thomas<p class="votes" id="13t1"></p></p>
+            <progress id="13p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v14">
+            <form>
+                <input type="radio" name="14" value="1"><label> Pedro Ortega</label><br />
+                <input type="radio" name="14" value="2"><label> Michelle Morris</label><br />
+                <button type="button" onclick="vote(14)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n14" style="display: none;">
+            <hr>
+            <p class="votes">Pedro Ortega<p class="votes" id="14t0"></p></p>
+            <progress id="14p0" value="32" max="100"></progress><hr>
+            <p class="votes">Michelle Morris<p class="votes" id="14t1"></p></p>
+            <progress id="14p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v15">
+            <form>
+                <input type="radio" name="15" value="1"><label> Scott Parlin</label><br />
+                <input type="radio" name="15" value="2"><label> Ashley Black</label><br />
+                <button type="button" onclick="vote(15)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n15" style="display: none;">
+            <hr>
+            <p class="votes">Scott Parlin<p class="votes" id="15t0"></p></p>
+            <progress id="15p0" value="32" max="100"></progress><hr>
+            <p class="votes">Ashley Black<p class="votes" id="15t1"></p></p>
+            <progress id="15p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v16">
+            <form>
+                <input type="radio" name="16" value="1"><label> John Sudbury</label><br />
+                <input type="radio" name="16" value="2"><label> Amanda Shingleton</label><br />
+                <button type="button" onclick="vote(16)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n16" style="display: none;">
+            <hr>
+            <p class="votes">John Sudbury<p class="votes" id="16t0"></p></p>
+            <progress id="16p0" value="32" max="100"></progress><hr>
+            <p class="votes">Amanda Shingleton<p class="votes" id="16t1"></p></p>
+            <progress id="16p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v17">
+            <form>
+                <input type="radio" name="17" value="1"><label> Zach Hallak</label><br />
+                <input type="radio" name="17" value="2"><label> Greg Owens</label><br />
+                <button type="button" onclick="vote(17)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n17" style="display: none;">
+            <hr>
+            <p class="votes">Zach Hallak<p class="votes" id="17t0"></p></p>
+            <progress id="17p0" value="32" max="100"></progress><hr>
+            <p class="votes">Greg Owens<p class="votes" id="17t1"></p></p>
+            <progress id="17p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v18">
+            <form>
+                <input type="radio" name="18" value="1"><label> Lauren Lafferty</label><br />
+                <input type="radio" name="18" value="2"><label> Monica Wyatt</label><br />
+                <button type="button" onclick="vote(18)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n18" style="display: none;">
+            <hr>
+            <p class="votes">Lauren Lafferty</p><p class="votes" id="18t0"></p></p>
+            <progress id="18p0" value="32" max="100"></progress><hr>
+            <p class="votes">Monica Wyatt<p class="votes" id="18t1"></p></p>
+            <progress id="18p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v19">
+            <form>
+                <input type="radio" name="19" value="1"><label> Shelene Anderson</label><br />
+                <input type="radio" name="19" value="2"><label> Clifford Frederick</label><br />
+                <button type="button" onclick="vote(19)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n19" style="display: none;">
+            <hr>
+            <p class="votes">Shelene Anderson<p class="votes" id="19t0"></p></p>
+            <progress id="19p0" value="32" max="100"></progress><hr>
+            <p class="votes">Clifford Frederick<p class="votes" id="19t1"></p></p>
+            <progress id="19p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v20">
+            <form>
+                <input type="radio" name="20" value="1"><label> Pamela Dietrich</label><br />
+                <input type="radio" name="20" value="2"><label> Gary Tuell</label><br />
+                <button type="button" onclick="vote(20)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n20" style="display: none;">
+            <hr>
+            <p class="votes">Pamela Dietrich<p class="votes" id="20t0"></p></p>
+            <progress id="20p0" value="32" max="100"></progress><hr>
+            <p class="votes">Gary Tuell<p class="votes" id="20t1"></p></p>
+            <progress id="20p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v21">
+            <form>
+                <input type="radio" name="21" value="1"><label> Whitlow Stanley</label><br />
+                <input type="radio" name="21" value="2"><label> Jana Jones</label><br />
+                <button type="button" onclick="vote(21)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n21" style="display: none;">
+            <hr>
+            <p class="votes">Whitlow Stanley<p class="votes" id="21t0"></p></p>
+            <progress id="21p0" value="32" max="100"></progress><hr>
+            <p class="votes">Jana Jones<p class="votes" id="21t1"></p></p>
+            <progress id="21p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v22">
+            <form>
+                <input type="radio" name="22" value="1"><label> Chris McMullen</label><br />
+                <input type="radio" name="22" value="2"><label> David Bookman</label><br />
+                <button type="button" onclick="vote(22)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n22" style="display: none;">
+            <hr>
+            <p class="votes">Chris McMullen<p class="votes" id="22t0"></p></p>
+            <progress id="22p0" value="32" max="100"></progress><hr>
+            <p class="votes">David Bookman<p class="votes" id="22t1"></p></p>
+            <progress id="22p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v23">
+            <form>
+                <input type="radio" name="23" value="1"><label> Leland Mallett</label><br />
+                <input type="radio" name="23" value="2"><label> Greg Shortes</label><br />
+                <button type="button" onclick="vote(23)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n23" style="display: none;">
+            <hr>
+            <p class="votes">Leland Mallett<p class="votes" id="23t0"></p></p>
+            <progress id="23p0" value="32" max="100"></progress><hr>
+            <p class="votes">Greg Shortes<p class="votes" id="23t1"></p></p>
+            <progress id="23p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v24">
+            <form>
+                <input type="radio" name="24" value="1"><label> John Julian</label><br />
+                <input type="radio" name="24" value="2"><label> Spenser Oloughlin</label><br />
+                <button type="button" onclick="vote(24)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n24" style="display: none;">
+            <hr>
+            <p class="votes">John Julian<p class="votes" id="24t0"></p></p>
+            <progress id="24p0" value="32" max="100"></progress><hr>
+            <p class="votes">Spenser Oloughlin<p class="votes" id="24t1"></p></p>
+            <progress id="24p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v25">
+            <form>
+                <input type="radio" name="25" value="1"><label> Trey Bates</label><br />
+                <input type="radio" name="25" value="2"><label> Ashley Eskridge</label><br />
+                <button type="button" onclick="vote(25)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n25" style="display: none;">
+            <hr>
+            <p class="votes">Trey Bates<p class="votes" id="25t0"></p></p>
+            <progress id="25p0" value="32" max="100"></progress><hr>
+            <p class="votes">Ashley Eskridge<p class="votes" id="25t1"></p></p>
+            <progress id="25p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v26">
+            <form>
+                <input type="radio" name="26" value="1"><label> Craig Rabalais</label><br />
+                <input type="radio" name="26" value="2"><label> Renee Tillery</label><br />
+                <button type="button" onclick="vote(26)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n26" style="display: none;">
+            <hr>
+            <p class="votes">Craig Rabalais<p class="votes" id="26t0"></p></p>
+            <progress id="26p0" value="32" max="100"></progress><hr>
+            <p class="votes">Renee Tillery<p class="votes" id="26t1"></p></p>
+            <progress id="26p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v27">
+            <form>
+                <input type="radio" name="27" value="1"><label> Savannah Stanley</label><br />
+                <input type="radio" name="27" value="2"><label> Joe Martin</label><br />
+                <button type="button" onclick="vote(27)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n27" style="display: none;">
+            <hr>
+            <p class="votes">Savannah Stanley<p class="votes" id="27t0"></p></p>
+            <progress id="27p0" value="32" max="100"></progress><hr>
+            <p class="votes">Joe Martin<p class="votes" id="27t1"></p></p>
+            <progress id="27p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v28">
+            <form>
+                <input type="radio" name="28" value="1"><label> Jessica Watson</label><br />
+                <input type="radio" name="28" value="2"><label> Gala Arambula</label><br />
+                <button type="button" onclick="vote(28)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n28" style="display: none;">
+            <hr>
+            <p class="votes">Jessica Watson<p class="votes" id="28t0"></p></p>
+            <progress id="28p0" value="32" max="100"></progress><hr>
+            <p class="votes">Gala Arambula<p class="votes" id="28t1"></p></p>
+            <progress id="28p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v29">
+            <form>
+                <input type="radio" name="29" value="1"><label> Arlevia Davis</label><br />
+                <input type="radio" name="29" value="2"><label> Skye Schanzer</label><br />
+                <button type="button" onclick="vote(29)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n29" style="display: none;">
+            <hr>
+            <p class="votes">Arlevia Davis<p class="votes" id="29t0"></p></p>
+            <progress id="29p0" value="32" max="100"></progress><hr>
+            <p class="votes">Skye Schanzer<p class="votes" id="29t1"></p></p>
+            <progress id="29p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v30">
+            <form>
+                <input type="radio" name="30" value="1"><label> Jennifer Roberts</label><br />
+                <input type="radio" name="30" value="2"><label> Micheal Pope</label><br />
+                <button type="button" onclick="vote(30)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n30" style="display: none;">
+            <hr>
+            <p class="votes">Jennifer Roberts<p class="votes" id="30t0"></p></p>
+            <progress id="30p0" value="32" max="100"></progress><hr>
+            <p class="votes">Micheal Pope<p class="votes" id="30t1"></p></p>
+            <progress id="30p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v31">
+            <form>
+                <input type="radio" name="31" value="1"><label> Chris Melson</label><br />
+                <input type="radio" name="31" value="2"><label> Sheridan Woolfolk</label><br />
+                <button type="button" onclick="vote(31)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n31" style="display: none;">
+            <hr>
+            <p class="votes">Chris Melson<p class="votes" id="31t0"></p></p>
+            <progress id="31p0" value="32" max="100"></progress><hr>
+            <p class="votes">Sheridan Woolfolk<p class="votes" id="31t1"></p></p>
+            <progress id="31p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v32">
+            <form>
+                <input type="radio" name="32" value="1"><label> Christopher Word</label><br />
+                <input type="radio" name="32" value="2"><label> Morgan Harrell</label><br />
+                <button type="button" onclick="vote(32)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n32" style="display: none;">
+            <hr>
+            <p class="votes">Christopher Word<p class="votes" id="32t0"></p></p>
+            <progress id="32p0" value="32" max="100"></progress><hr>
+            <p class="votes">Morgan Harrell<p class="votes" id="32t1"></p></p>
+            <progress id="32p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v33">
+            <form>
+                <input type="radio" name="33" value="1"><label> Andrew Nance</label><br />
+                <input type="radio" name="33" value="2"><label> Anthony Wilde</label><br />
+                <button type="button" onclick="vote(33)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n33" style="display: none;">
+            <hr>
+            <p class="votes">Andrew Nance<p class="votes" id="33t0"></p></p>
+            <progress id="33p0" value="32" max="100"></progress><hr>
+            <p class="votes">Anthony Wilde<p class="votes" id="33t1"></p></p>
+            <progress id="33p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v34">
+            <form>
+                <input type="radio" name="34" value="1"><label> Kelsie Teague</label><br />
+                <input type="radio" name="34" value="2"><label> Nick Johnson</label><br />
+                <button type="button" onclick="vote(34)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n34" style="display: none;">
+            <hr>
+            <p class="votes">Kelsie Teague</p><p class="votes" id="34t0"></p></p>
+            <progress id="34p0" value="32" max="100"></progress><hr>
+            <p class="votes">Nick Johnson<p class="votes" id="34t1"></p></p>
+            <progress id="34p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v35">
+            <form>
+                <input type="radio" name="35" value="1"><label> Jeremy Lyday</label><br />
+                <input type="radio" name="35" value="2"><label> Mikki Castor</label><br />
+                <button type="button" onclick="vote(35)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n35" style="display: none;">
+            <hr>
+            <p class="votes">Jeremy Lyday<p class="votes" id="35t0"></p></p>
+            <progress id="35p0" value="32" max="100"></progress><hr>
+            <p class="votes">Mikki Castor<p class="votes" id="35t1"></p></p>
+            <progress id="35p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v36">
+            <form>
+                <input type="radio" name="36" value="1"><label> Alan Vasquez</label><br />
+                <input type="radio" name="36" value="2"><label> Rahn Smith</label><br />
+                <button type="button" onclick="vote(36)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n36" style="display: none;">
+            <hr>
+            <p class="votes">Alan Vasquez<p class="votes" id="36t0"></p></p>
+            <progress id="36p0" value="32" max="100"></progress><hr>
+            <p class="votes">Rahn Smith<p class="votes" id="36t1"></p></p>
+            <progress id="36p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v37">
+            <form>
+                <input type="radio" name="37" value="1"><label> Michelle Fagan</label><br />
+                <input type="radio" name="37" value="2"><label> Tarah Norris</label><br />
+                <button type="button" onclick="vote(37)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n37" style="display: none;">
+            <hr>
+            <p class="votes">Michelle Fagan<p class="votes" id="37t0"></p></p>
+            <progress id="37p0" value="32" max="100"></progress><hr>
+            <p class="votes">Tarah Norris<p class="votes" id="37t1"></p></p>
+            <progress id="37p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v38">
+            <form>
+                <input type="radio" name="38" value="1"><label> Gina Chianese</label><br />
+                <input type="radio" name="38" value="2"><label> Cheyney Crook</label><br />
+                <button type="button" onclick="vote(38)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n38" style="display: none;">
+            <hr>
+            <p class="votes">Gina Chianese<p class="votes" id="38t0"></p></p>
+            <progress id="38p0" value="32" max="100"></progress><hr>
+            <p class="votes">Cheyney Crook<p class="votes" id="38t1"></p></p>
+            <progress id="38p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v39">
+            <form>
+                <input type="radio" name="39" value="1"><label> Shane Skinner</label><br />
+                <input type="radio" name="39" value="2"><label> James Thomas</label><br />
+                <button type="button" onclick="vote(39)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n39" style="display: none;">
+            <hr>
+            <p class="votes">Shane Skinner<p class="votes" id="39t0"></p></p>
+            <progress id="39p0" value="32" max="100"></progress><hr>
+            <p class="votes">James Thomas<p class="votes" id="39t1"></p></p>
+            <progress id="39p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v40">
+            <form>
+                <input type="radio" name="40" value="1"><label> Stephanie Gresham</label><br />
+                <input type="radio" name="40" value="2"><label> Ovie Michael-Ogbe</label><br />
+                <button type="button" onclick="vote(40)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n40" style="display: none;">
+            <hr>
+            <p class="votes">Stephanie Gresham<p class="votes" id="40t0"></p></p>
+            <progress id="40p0" value="32" max="100"></progress><hr>
+            <p class="votes">Ovie Michael-Ogbe<p class="votes" id="40t1"></p></p>
+            <progress id="40p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v41">
+            <form>
+                <input type="radio" name="41" value="1"><label> Diana Sanchez</label><br />
+                <input type="radio" name="41" value="2"><label> Michael Asato</label><br />
+                <button type="button" onclick="vote(41)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n41" style="display: none;">
+            <hr>
+            <p class="votes">Diana Sanchez<p class="votes" id="41t0"></p></p>
+            <progress id="41p0" value="32" max="100"></progress><hr>
+            <p class="votes">Michael Asato<p class="votes" id="41t1"></p></p>
+            <progress id="41p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v42">
+            <form>
+                <input type="radio" name="42" value="1"><label> Rusty Bently</label><br />
+                <input type="radio" name="42" value="2"><label> Jayme Schroeder</label><br />
+                <button type="button" onclick="vote(42)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n42" style="display: none;">
+            <hr>
+            <p class="votes">Rusty Bently<p class="votes" id="42t0"></p></p>
+            <progress id="42p0" value="32" max="100"></progress><hr>
+            <p class="votes">Jayme Schroeder<p class="votes" id="42t1"></p></p>
+            <progress id="42p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v43">
+            <form>
+                <input type="radio" name="43" value="1"><label> Rachel Ryan</label><br />
+                <input type="radio" name="43" value="2"><label> Amber Patrick</label><br />
+                <button type="button" onclick="vote(43)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n43" style="display: none;">
+            <hr>
+            <p class="votes">Rachel Ryan<p class="votes" id="43t0"></p></p>
+            <progress id="43p0" value="32" max="100"></progress><hr>
+            <p class="votes">Amber Patrick<p class="votes" id="43t1"></p></p>
+            <progress id="43p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v44">
+            <form>
+                <input type="radio" name="44" value="1"><label> Nolan Crowdus</label><br />
+                <input type="radio" name="44" value="2"><label> Jerry Wyatt</label><br />
+                <button type="button" onclick="vote(44)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n44" style="display: none;">
+            <hr>
+            <p class="votes">Nolan Crowdus<p class="votes" id="44t0"></p></p>
+            <progress id="44p0" value="32" max="100"></progress><hr>
+            <p class="votes">Jerry Wyatt<p class="votes" id="44t1"></p></p>
+            <progress id="44p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v45">
+            <form>
+                <input type="radio" name="45" value="1"><label> Amy Veselka</label><br />
+                <input type="radio" name="45" value="2"><label> Dawn Groves</label><br />
+                <button type="button" onclick="vote(45)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n45" style="display: none;">
+            <hr>
+            <p class="votes">Amy Veselka<p class="votes" id="45t0"></p></p>
+            <progress id="45p0" value="32" max="100"></progress><hr>
+            <p class="votes">Dawn Groves<p class="votes" id="45t1"></p></p>
+            <progress id="45p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v46">
+            <form>
+                <input type="radio" name="46" value="1"><label> Amie Prater</label><br />
+                <input type="radio" name="46" value="2"><label> James Watkins</label><br />
+                <button type="button" onclick="vote(46)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n46" style="display: none;">
+            <hr>
+            <p class="votes">Amie Prater<p class="votes" id="46t0"></p></p>
+            <progress id="46p0" value="32" max="100"></progress><hr>
+            <p class="votes">James Watkins<p class="votes" id="46t1"></p></p>
+            <progress id="46p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v47">
+            <form>
+                <input type="radio" name="47" value="1"><label> Dana Suarez</label><br />
+                <input type="radio" name="47" value="2"><label> Sean Johnson</label><br />
+                <button type="button" onclick="vote(47)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n47" style="display: none;">
+            <hr>
+            <p class="votes">Dana Suarez<p class="votes" id="47t0"></p></p>
+            <progress id="47p0" value="32" max="100"></progress><hr>
+            <p class="votes">Sean Johnson<p class="votes" id="47t1"></p></p>
+            <progress id="47p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v48">
+            <form>
+                <input type="radio" name="48" value="1"><label> Melissa McGarr</label><br />
+                <input type="radio" name="48" value="2"><label> Cheryl Cason</label><br />
+                <button type="button" onclick="vote(48)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n48" style="display: none;">
+            <hr>
+            <p class="votes">Melissa McGarr<p class="votes" id="48t0"></p></p>
+            <progress id="48p0" value="32" max="100"></progress><hr>
+            <p class="votes">Cheryl Cason<p class="votes" id="48t1"></p></p>
+            <progress id="48p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v49">
+            <form>
+                <input type="radio" name="49" value="1"><label> Donna Kercher</label><br />
+                <input type="radio" name="49" value="2"><label> Katie Smith</label><br />
+                <button type="button" onclick="vote(49)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n49" style="display: none;">
+            <hr>
+            <p class="votes">Donna Kercher<p class="votes" id="49t0"></p></p>
+            <progress id="49p0" value="32" max="100"></progress><hr>
+            <p class="votes">Katie Smith<p class="votes" id="49t1"></p></p>
+            <progress id="49p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v50">
+            <form>
+                <input type="radio" name="50" value="1"><label> Tim Kilgore</label><br />
+                <input type="radio" name="50" value="2"><label> Freddy Olivas</label><br />
+                <button type="button" onclick="vote(50)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n50" style="display: none;">
+            <hr>
+            <p class="votes">Tim Kilgore<p class="votes" id="50t0"></p></p>
+            <progress id="50p0" value="32" max="100"></progress><hr>
+            <p class="votes">Freddy Olivas<p class="votes" id="50t1"></p></p>
+            <progress id="50p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v51">
+            <form>
+                <input type="radio" name="51" value="1"><label> Tracy Burke</label><br />
+                <input type="radio" name="51" value="2"><label> Erin England</label><br />
+                <button type="button" onclick="vote(51)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n51" style="display: none;">
+            <hr>
+            <p class="votes">Tracy Burke<p class="votes" id="51t0"></p></p>
+            <progress id="51p0" value="32" max="100"></progress><hr>
+            <p class="votes">Erin England<p class="votes" id="51t1"></p></p>
+            <progress id="51p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v52">
+            <form>
+                <input type="radio" name="52" value="1"><label> Chad Redwine</label><br />
+                <input type="radio" name="52" value="2"><label> Jonathan Thompson</label><br />
+                <button type="button" onclick="vote(52)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n52" style="display: none;">
+            <hr>
+            <p class="votes">Chad Redwine<p class="votes" id="52t0"></p></p>
+            <progress id="52p0" value="32" max="100"></progress><hr>
+            <p class="votes">Jonathan Thompson<p class="votes" id="52t1"></p></p>
+            <progress id="52p1" value="68" max="100"></progress>
+        </div>
+        <div class="entry" id="v53">
+            <form>
+                <input type="radio" name="53" value="1"><label> Elizabeth Lopez</label><br />
+                <input type="radio" name="53" value="2"><label> Terrance McCloud</label><br />
+                <button type="button" onclick="vote(53)">Vote</button>
+            </form>
+        </div>
+        <div class="votes" id="n53" style="display: none;">
+            <hr>
+            <p class="votes">Elizabeth Lopez<p class="votes" id="53t0"></p></p>
+            <progress id="53p0" value="32" max="100"></progress><hr>
+            <p class="votes">Terrance McCloud<p class="votes" id="53t1"></p></p>
+            <progress id="53p1" value="68" max="100"></progress>
+        </div>
     </div>
 
     <script type="text/javascript">
         async function vote(entry) {
             var radios = document.querySelectorAll('input[type="radio"]:checked');
-            if (!(radios.length > 0)) return alert("please vote");
+            if (!(radios.length > 0)) return alert("You have not selected any options. Please select an option to vote.");
 
             var value;
             var choices = document.getElementsByName(entry);
@@ -228,6 +842,3 @@
         }
     </script>
 </body>
-
-U=&m-G~[N9i5
-?-Y}C,acM:6
