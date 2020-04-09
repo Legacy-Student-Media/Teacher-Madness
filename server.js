@@ -22,6 +22,10 @@ app.post('/', function (req, res) {
     res.send("test");
 });
 
+app.get('/test', (req, res) => {
+    res.sendStatus(200);
+});
+
 app.post('/vote', (req, res) => {
     console.log(req.body);
     vote(req.body.id, req.body.value);

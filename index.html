@@ -19,6 +19,10 @@
 
 
 <body>
+    <div class="header">
+        <h1>Teacher Madness 2020</h1>
+    </div>
+
     <div class="wrapper">
         <div class="entry" id="v0">
             <form>
@@ -788,9 +792,10 @@
 
             if (choices[0].checked) {
                 value = 0;
-            } else {
+            } else if (choices[1].checked) {
                 value = 1;
             }
+            else return;
 
             var post = {
                 id: entry,
